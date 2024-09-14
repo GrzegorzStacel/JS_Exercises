@@ -8,6 +8,7 @@ import chalk from "chalk";
 import { measureFunctionTime } from "../helpers/measureFunctionTime.js";
 import { displayResult } from "../helpers/displayResult.js";
 import { validateArray } from "../helpers/validateArray.js";
+import { displayInformations } from "../helpers/displayInformations.js";
 
 function findMaxForLoop(array: number[]): number {
   validateArray(array);
@@ -31,7 +32,7 @@ function findMaxMath(array: number[]): number {
 }
 
 function measureFindMaxPerfomance(array: number[], findType: "ForLoop" | "Math"): void {
-  console.log(chalk.blue(`\n\nTablica (${array.length}) elementów, używając metody: ${findType}`));
+  console.log(chalk.blue(`\n\nTablica (${array.length}) elementów. Użyta metoda: ${findType}`));
 
   const findTypeFunction = findType === "ForLoop" ? findMaxForLoop : findMaxMath;
 
@@ -44,8 +45,7 @@ export function findMax(): void {
   const numbers = [10, 25, 3, 99, 47, 12];
   const mockArray: number[] = Array.from({ length: 115000 }, (_, i) => i + 1);
 
-  console.log(chalk.greenBright.bold("\n\nNapisz funkcję, która znajdzie największą liczbę w podanej tablicy."));
-  console.log(chalk.underline.greenBright("Rozpoczynam zadanie 'findMax:'"));
+  displayInformations("findMax", "Napisz funkcję, która znajdzie największą liczbę w podanej tablicy.");
 
   measureFindMaxPerfomance(numbers, "ForLoop"); // 99 (0.162ms)
   measureFindMaxPerfomance(numbers, "Math"); // 99 (0.137ms)
@@ -56,5 +56,5 @@ export function findMax(): void {
 
   // measureFindMaxPerfomance([], "ForLoop"); // Test dla validateArray()
 
-  console.log(chalk.red.underline("\nKoniec zadania 'findMax'\n"));
+  displayInformations("findMax");
 }
