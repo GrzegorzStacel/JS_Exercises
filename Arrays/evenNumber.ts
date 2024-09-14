@@ -1,8 +1,19 @@
-import chalk from "chalk";
-
+//
+//
 // Napisz funkcję, która przyjmuje tablicę liczb i zwraca nową tablicę zawierającą tylko liczby parzyste.
+//
+//
+//
+
+import chalk from "chalk";
+import { measureFunctionTime } from "../helpers/measureFunctionTime.js";
+import { displayResult } from "../helpers/displayResult.js";
+import { validateArray } from "../helpers/validateArray.js";
+import { displayInformations } from "../helpers/displayInformations.js";
 
 function filterEvenNumbers(numbers: number[]): number[] {
+  validateArray(numbers);
+
   let tmpArray: number[] = [];
 
   numbers.forEach((item) => {
@@ -13,28 +24,23 @@ function filterEvenNumbers(numbers: number[]): number[] {
 }
 
 function filterEvenNumbersByFilter(numbers: number[]): number[] {
+  validateArray(numbers);
+
   return numbers.filter((number) => number % 2 === 0);
 }
 
-function displayResult(result: number[]): void {
-  console.dir(result, { maxArrayLength: 10 });
-  console.log(`Liczba parzystych elementów: ${result.length}\n`);
-}
-
 function measureFilteringPerformance(array: number[], filterType: "forEach" | "filter"): void {
-  console.log(chalk.green(`Tablica (${array.length}) elementów, używa metody: ${filterType}`));
+  console.log(chalk.blue(`\nTablica (${array.length}) elementów. Użyta metoda: ${filterType}`));
 
   const filterFunction = filterType === "forEach" ? filterEvenNumbers : filterEvenNumbersByFilter;
 
-  console.time(chalk.yellow(`Czas dla metody ${filterType}`));
-  const result = filterFunction(array);
-  console.timeEnd(chalk.yellow(`Czas dla metody ${filterType}`));
+  const result = measureFunctionTime(filterFunction, array, `Czas dla metody ${filterType}`);
 
-  displayResult(result);
+  displayResult(`Liczba parzystych elementów: ${result.length}\n`, result);
 }
 
 export function evenNumber(smallArray: number[], veryLongArray: number[]): void {
-  console.log(chalk.blue('\n\nRozpoczynam zadanie "evenNumber"\n'));
+  displayInformations("evenNumber", "Napisz funkcję, która przyjmuje tablicę liczb i zwraca nową tablicę zawierającą tylko liczby parzyste.");
 
   // Wywołanie dla małej tablicy z różnymi metodami filtrowania
   measureFilteringPerformance(smallArray, "forEach");
@@ -44,5 +50,5 @@ export function evenNumber(smallArray: number[], veryLongArray: number[]): void 
   measureFilteringPerformance(veryLongArray, "forEach");
   measureFilteringPerformance(veryLongArray, "filter");
 
-  console.log(chalk.blue("Koniec zadania 'evenNumber'\n\n\n"));
+  displayInformations("evenNumber");
 }
