@@ -1,25 +1,40 @@
+//
+//
+// Masz tablicę obiektów studentów. Posortuj ich alfabetycznie według imienia.
+//
+//
+
+import { displayInformations } from "../helpers/displayInformations.js";
+import { displayResult } from "../helpers/displayResult.js";
+import { measureFunctionTime } from "../helpers/measureFunctionTime.js";
+
 type Student = {
   name: string;
   age: number;
 };
 
+function sortByKey<T>(items: T[], key: keyof T): T[] {
+  return items.sort((a, b) => (a[key] > b[key] ? 1 : -1));
+}
+
+function measureSortByNamePerformance(students: Student[], findType: "name" | "age"): void {
+  const result = measureFunctionTime(() => sortByKey(students, findType), students, "Czas dla metody 'sort'");
+
+  displayResult(`Posortowana tablica według "${findType}"\n`, result);
+}
+
 export function sortByName(): void {
-  // Masz tablicę obiektów studentów. Posortuj ich alfabetycznie według imienia.
+  displayInformations("sortByName", "Masz tablicę obiektów studentów. Posortuj ich alfabetycznie według imienia.");
+
   const students: Student[] = [
     { name: "zAnna", age: 22 },
     { name: "John", age: 19 },
     { name: "Mike", age: 25 },
     { name: "Zara", age: 21 },
   ];
-  console.log(sort(students)); // 13.191ms
-  console.log(students);
-}
 
-// TODO przerobić funkcję na bardziej elastyczną 
-function sort(students: Student[]): Student[] {
-  console.time("czas - sort");
-  const sortedArray = students.slice().sort((a, b) => a.name.localeCompare(b.name, "pl", { sensitivity: "base" }));
+  measureSortByNamePerformance(students, "name");
+  measureSortByNamePerformance(students, "age");
 
-  console.timeEnd("czas - sort");
-  return sortedArray;
+  displayInformations("sortByName");
 }
