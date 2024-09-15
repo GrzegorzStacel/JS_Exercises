@@ -30,7 +30,7 @@ function filterEvenNumbersByFilter(numbers: number[]): number[] {
 }
 
 function measureFilteringPerformance(array: number[], filterType: "forEach" | "filter"): void {
-  console.log(chalk.blue(`\nTablica (${array.length}) elementów. Użyta metoda: ${filterType}`));
+  console.log(chalk.blue(`Tablica (${array.length}) elementów. Użyta metoda: ${filterType}`));
 
   const filterFunction = filterType === "forEach" ? filterEvenNumbers : filterEvenNumbersByFilter;
 

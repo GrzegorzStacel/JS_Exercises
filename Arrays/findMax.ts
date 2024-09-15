@@ -32,13 +32,13 @@ function findMaxMath(array: number[]): number {
 }
 
 function measureFindMaxPerfomance(array: number[], findType: "ForLoop" | "Math"): void {
-  console.log(chalk.blue(`\n\nTablica (${array.length}) elementów. Użyta metoda: ${findType}`));
+  console.log(chalk.blue(`Tablica (${array.length}) elementów. Użyta metoda: ${findType}`));
 
   const findTypeFunction = findType === "ForLoop" ? findMaxForLoop : findMaxMath;
 
   const result = measureFunctionTime(findTypeFunction, array, `Czas dla metody ${findType}`);
 
-  displayResult(`Największa liczba: ${result}`);
+  displayResult(`Największa liczba: ${result}\n`);
 }
 
 export function findMax(): void {
