@@ -1,7 +1,7 @@
 import chalk from "chalk";
 
 export function displayResult(result: string): void;
-export function displayResult(result: string, array: number[]): void;
+export function displayResult(result: string, array: number[] | object[]): void;
 
 export function displayResult(param1: string, param2?: number[]): void {
   if (Array.isArray(param2)) {
