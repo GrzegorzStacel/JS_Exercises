@@ -1,10 +1,10 @@
-import { evenNumber } from "./Arrays/evenNumber.js";
-import { findMax } from "./Arrays/findMax.js";
-import { sum } from "./Arrays/sum.js";
-import { sortByName } from "./Arrays/sortByName.js";
-import { multipleOperations } from "./Arrays/multipleOperations.js";
-import { analyzeCustomerData } from "./Arrays/analyzeCustomerData.js";
-import { processOrdersByStatus } from "./Arrays/wrokWithOrders.js";
+import { evenNumber } from "./Arrays/evenNumber/evenNumber.js";
+import { findMax } from "./Arrays/findMax/findMax.js";
+import { sum } from "./Arrays/sum/sum.js";
+import { sortByName } from "./Arrays/sortByName/sortByName.js";
+import { multipleOperations } from "./Arrays/multipleOperations/multipleOperations.js";
+import { analyzeCustomerData } from "./Arrays/analyzeCustomerData/analyzeCustomerData.js";
+import { processOrdersByStatus } from "./Arrays/workWithOrders/wrokWithOrders.js";
 
 const smallArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const veryLongArray = Array.from({ length: 1000000 }, (_, value) => value + 1);
