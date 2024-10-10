@@ -5,28 +5,10 @@
 //
 
 import chalk from "chalk";
-import { displayInformations } from "../helpers/displayInformations.js";
-import { displayResult } from "../helpers/displayResult.js";
-import { measureFunctionTime } from "../helpers/measureFunctionTime.js";
-import { validateArray } from "../helpers/validateArray.js";
-
-function sumArrayWithForEach(numbers: number[]): number {
-  validateArray(numbers);
-  let sum: number = 0;
-
-  numbers.forEach((number) => {
-    sum += number;
-  });
-
-  return sum;
-}
-
-function sumArrayWithReduce(numbers: number[]): number {
-  validateArray(numbers);
-
-  const sum = numbers.reduce((sum, number) => sum + number, 0);
-  return sum;
-}
+import { displayInformations } from "../../helpers/displayInformations.js";
+import { displayResult } from "../../helpers/displayResult.js";
+import { measureFunctionTime } from "../../helpers/measureFunctionTime.js";
+import { sumArrayWithForEach, sumArrayWithReduce } from "./sumUtils.js";
 
 function measureSumPerformance(numbers: number[], findType: "ForEach" | "Reduce") {
   console.log(chalk.blue(`Tablica (${numbers.length}) elementów. Użyta metoda: ${findType}`));

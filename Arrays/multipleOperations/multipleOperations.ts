@@ -1,14 +1,4 @@
-function removeEvenNumbers(numbers: number[]): number[] {
-  return numbers.filter((number) => number % 2 !== 0);
-}
-
-function sortDescending(numbers: number[]): number[] {
-  return [...numbers].sort((a, b) => b - a);
-}
-
-function sum(numbers: number[]): number {
-  return numbers.reduce((total, current) => total + current, 0);
-}
+import { removeEvenNumbers, sortDescending, sum } from "./multipleOperationsUtils.js";
 
 export function multipleOperations() {
   const numbers = [5, 8, 12, 3, 19, 1, 25, 7];

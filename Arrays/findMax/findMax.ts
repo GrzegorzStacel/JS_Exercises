@@ -5,31 +5,10 @@
 //
 
 import chalk from "chalk";
-import { measureFunctionTime } from "../helpers/measureFunctionTime.js";
-import { displayResult } from "../helpers/displayResult.js";
-import { validateArray } from "../helpers/validateArray.js";
-import { displayInformations } from "../helpers/displayInformations.js";
-
-function findMaxForLoop(array: number[]): number {
-  validateArray(array);
-
-  let max = array[0];
-
-  for (let i = 1; i < array.length; i++) {
-    if (max < array[i]) {
-      max = array[i];
-    }
-  }
-
-  return max;
-}
-
-function findMaxMath(array: number[]): number {
-  validateArray(array);
-
-  const number = Math.max(...array);
-  return number;
-}
+import { measureFunctionTime } from "../../helpers/measureFunctionTime.js";
+import { displayResult } from "../../helpers/displayResult.js";
+import { displayInformations } from "../../helpers/displayInformations.js";
+import { findMaxForLoop, findMaxMath } from "../findMax/findmaxUtils.js";
 
 function measureFindMaxPerfomance(array: number[], findType: "ForLoop" | "Math"): void {
   console.log(chalk.blue(`Tablica (${array.length}) elementów. Użyta metoda: ${findType}`));

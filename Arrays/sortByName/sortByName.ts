@@ -4,21 +4,18 @@
 //
 //
 
-import { displayInformations } from "../helpers/displayInformations.js";
-import { displayResult } from "../helpers/displayResult.js";
-import { measureFunctionTime } from "../helpers/measureFunctionTime.js";
+import { displayInformations } from "../../helpers/displayInformations.js";
+import { displayResult } from "../../helpers/displayResult.js";
+import { measureFunctionTime } from "../../helpers/measureFunctionTime.js";
+import { sortByKey } from "./sortByNameUtils.js";
 
 type Student = {
   name: string;
   age: number;
 };
 
-function sortByKey<T>(items: T[], key: keyof T): T[] {
-  return items.sort((a, b) => (a[key] > b[key] ? 1 : -1));
-}
-
 function measureSortByNamePerformance(students: Student[], findType: "name" | "age"): void {
-  const result = measureFunctionTime(() => sortByKey(students, findType), students, "Czas dla metody 'sort'");
+  const result = measureFunctionTime(() => sortByKey(students, findType), students, `Czas dla metody 'sort' - wg. ${findType}`);
 
   displayResult(`Posortowana tablica według "${findType}"\n`, result);
 }
