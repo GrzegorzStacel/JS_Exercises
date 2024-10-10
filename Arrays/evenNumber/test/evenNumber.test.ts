@@ -2,8 +2,9 @@ import { filterEvenNumbers, filterEvenNumbersByFilter } from "../filterUtils";
 import { measureFilteringPerformance } from "../evenNumber.js";
 
 describe("Testowanie funkcji do filtrowania liczb parzystych", () => {
+  const inputArray = [1, 2, 3, 4, 5, 6];
+
   it("Powinna zwrócić tylko liczby parzyste dla funkcji filterEvenNumbers", () => {
-    const inputArray = [1, 2, 3, 4, 5, 6];
     const expectedOutput = [2, 4, 6];
 
     const result = filterEvenNumbers(inputArray);
@@ -12,7 +13,6 @@ describe("Testowanie funkcji do filtrowania liczb parzystych", () => {
   });
 
   it("Powinna zwrócić tylko liczby parzyste dla funkcji filterEvenNumbersByFilter", () => {
-    const inputArray = [1, 2, 3, 4, 5, 6];
     const expectedOutput = [2, 4, 6];
 
     const result = filterEvenNumbersByFilter(inputArray);
