@@ -3,7 +3,7 @@
 // 2. Sortuje tych klientów według ich wydatków w kolejności malejącej.
 // 3. Oblicza sumę wydatków tych klientów.
 
-import { Customer } from "../../index.js";
+import { Customer } from "../../indexArrays.js";
 import { filterClientsByAge, sortByPurchaseAmount, sumPurchaseAmount } from "./analyzeUtils.js";
 
 export function analyzeCustomerData(customers: Customer[], ageLimit: number): void {

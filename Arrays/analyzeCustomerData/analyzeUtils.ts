@@ -1,4 +1,4 @@
-import { Customer } from "../../index.js";
+import { Customer } from "../../indexArrays.js";
 
 export function filterClientsByAge(customers: Customer[], ageLimit: number): Customer[] {
   return customers.filter((customer) => customer.age > ageLimit);

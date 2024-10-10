@@ -10,22 +10,22 @@ const smallArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const veryLongArray = Array.from({ length: 1000000 }, (_, value) => value + 1);
 
 // Napisz funkcję, która przyjmuje tablicę liczb i zwraca nową tablicę zawierającą tylko liczby parzyste.
-// evenNumber(smallArray, veryLongArray);
+evenNumber(smallArray, veryLongArray);
 
 // Napisz funkcję, która znajdzie największą liczbę w podanej tablicy.
-// findMax();
+findMax();
 
 // Napisz funkcję, która zsumuje wszystkie liczby w tablicy.
-// sum(veryLongArray);
+sum(veryLongArray);
 
 // Masz tablicę obiektów studentów. Posortuj ich alfabetycznie według imienia.
-// sortByName();
+sortByName();
 
 // Napisz funkcję, która:
 // Usunie wszystkie liczby parzyste z tablicy.
 // Posortuje pozostałe liczby w kolejności malejącej.
 // Na końcu obliczy sumę pozostałych elementów.
-// multipleOperations();
+multipleOperations();
 
 // Napisz funkcję, która wykonuje następujące operacje w podanej kolejności:
 // 1. Filtruje klientów, aby znaleźć tych, którzy mają więcej niż 30 lat.
@@ -38,14 +38,14 @@ export type Customer = {
   purchaseAmount: number;
 };
 
-// const customers: Customer[] = [
-//   { name: "John Doe", age: 35, purchaseAmount: 1200 },
-//   { name: "Jane Smith", age: 28, purchaseAmount: 800 },
-//   { name: "Alice Johnson", age: 45, purchaseAmount: 1500 },
-//   { name: "Bob Brown", age: 32, purchaseAmount: 950 },
-// ];
+const customers: Customer[] = [
+  { name: "John Doe", age: 35, purchaseAmount: 1200 },
+  { name: "Jane Smith", age: 28, purchaseAmount: 800 },
+  { name: "Alice Johnson", age: 45, purchaseAmount: 1500 },
+  { name: "Bob Brown", age: 32, purchaseAmount: 950 },
+];
 
-// analyzeCustomerData(customers, 30);
+analyzeCustomerData(customers, 30);
 
 // Masz tablicę obiektów reprezentujących zamówienia w e-commerce. Każde zamówienie ma id, amount (kwotę) i status (status zamówienia). Napisz funkcję, która:
 

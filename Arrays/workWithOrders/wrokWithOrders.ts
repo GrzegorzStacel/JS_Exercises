@@ -1,4 +1,4 @@
-import { Order, OrderStatus } from "../../index.js";
+import { Order, OrderStatus } from "../../indexArrays.js";
 import { isValidOrderStatus, validateOrderArray, getOrdersByStatus, sortOrdersByAmount, sumOrderAmounts } from "./workWithOrdersUtils.js";
 
 type AnalysisResult = {

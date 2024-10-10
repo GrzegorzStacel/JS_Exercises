@@ -1,4 +1,4 @@
-import { Order, OrderStatus } from "../../index.js";
+import { Order, OrderStatus } from "../../indexArrays.js";
 
 export function getOrdersByStatus(orders: Order[], statusType: OrderStatus): Order[] {
   return orders.filter((order) => order.status === statusType);
