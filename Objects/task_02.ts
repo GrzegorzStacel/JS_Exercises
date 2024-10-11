@@ -14,7 +14,7 @@ const currentUser = {
     console.log(this.name, this.surname, this.email, this.www, this.userType, this.isActive);
   },
 
-  setActive(active) {
+  setActive(active: boolean) {
     this.isActive = active;
   },
 };
