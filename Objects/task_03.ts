@@ -19,7 +19,7 @@ const book: Book = {
   showDetails(): void {
     console.log("\nPętla for_in");
     for (let key in this) {
-      if (typeof this[key] !== "function") console.log(this[key]);
+      if (this.hasOwnPropoerty(key) && typeof this[key] !== "function") console.log(this[key]);
     }
 
     console.log("\nPętla po kolekcji Object.keys");

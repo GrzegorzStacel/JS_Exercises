@@ -50,12 +50,12 @@ const spaceShip: Ship = {
     console.log(`Statek przleciał już całkowity dystans ${this.flyDistance}`);
   },
 
-  meetClingon() {
+  meetClingon(chance: number = 100): void {
     let randomCounter = 0;
-    const maxCounter = 100;
+    const maxCounter = chance;
 
-    for (let i = 0; i <= maxCounter; i++) {
-      if (Math.random() !== 0) {
+    for (let i = 0; i < maxCounter; i++) {
+      if (Math.random() > 0.5) {
         randomCounter += 1;
       }
     }
