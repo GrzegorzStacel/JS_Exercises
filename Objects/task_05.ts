@@ -28,6 +28,21 @@ const book: Book = {
   users: [] as User[],
 
   addUser(name: string, age: number, phone: number): void {
+    if (!name || typeof name !== "string" || name.trim() === "") {
+      console.warn("\nInvalid name:", name);
+      return;
+    }
+
+    if (typeof age !== "number" || age < 18 || age > 100 || !Number.isInteger(age)) {
+      console.warn("\nInvalid age:", age);
+      return;
+    }
+
+    if (typeof phone !== "number" || phone <= 0 || phone.toString().length !== 3) {
+      console.warn("\nInvalid phone number: ", phone);
+      return;
+    }
+
     this.users.push({ name, age, phone });
   },
 
@@ -42,11 +57,21 @@ const book: Book = {
   },
 
   findByName(name: string): void {
+    if (!name || typeof name !== "string" || name.trim() === "") {
+      console.warn("Invalid name:", name, "\n");
+      return;
+    }
+
     const user = this.users.find((item: User) => item.name === name);
     console.log(user ? user.name : false, "\n");
   },
 
   findByPhone(phone: number): void {
+    if (!phone || typeof phone !== "number" || phone <= 0 || phone.toString().length !== 3) {
+      console.warn("Invalid phone number:", phone, "\n");
+      return;
+    }
+
     const user = this.users.find((item: User) => item.phone === phone);
     console.log(user ? user.name : false, "\n");
   },
@@ -57,11 +82,14 @@ const book: Book = {
 };
 
 export function runTask_05(): void {
+  book.addUser("Marta", 21, 111);
+  book.addUser("Vlad", 30, 111);
   book.addUser("Ala", 17, 222);
   book.addUser("Bart", 37, 333);
   book.showUsers();
   book.findByName("Marta");
   book.findByName("Martar");
+  book.findByName("");
   book.findByPhone(222);
   book.findByPhone(123);
   book.getCount();
