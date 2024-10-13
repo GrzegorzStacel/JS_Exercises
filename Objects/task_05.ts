@@ -15,14 +15,23 @@ type User = {
   phone: number;
 };
 
-const book = {
+interface Book {
+  users: User[];
+  addUser(name: string, age: number, phone: number): void;
+  showUsers(): void;
+  findByName(name: string): void;
+  findByPhone(phone: number): void;
+  getCount(): void;
+}
+
+const book: Book = {
   users: [] as User[],
 
-  addUser(name: string, age: number, phone: number) {
+  addUser(name: string, age: number, phone: number): void {
     this.users.push({ name, age, phone });
   },
 
-  showUsers() {
+  showUsers(): void {
     console.log("\nWszyscy użytkownicy w książce: ");
 
     this.users.forEach((element: User) => {
@@ -32,23 +41,22 @@ const book = {
     console.log("\n");
   },
 
-  findByName(name: string) {
+  findByName(name: string): void {
     const user = this.users.find((item: User) => item.name === name);
     console.log(user ? user.name : false, "\n");
   },
 
-  findByPhone(phone: number) {
+  findByPhone(phone: number): void {
     const user = this.users.find((item: User) => item.phone === phone);
     console.log(user ? user.name : false, "\n");
   },
 
-  getCount() {
+  getCount(): void {
     console.log(this.users.length, "\n");
   },
 };
 
-export function runTask_05() {
-  book.addUser("Marta", 27, 111);
+export function runTask_05(): void {
   book.addUser("Ala", 17, 222);
   book.addUser("Bart", 37, 333);
   book.showUsers();

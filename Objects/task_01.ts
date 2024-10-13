@@ -10,7 +10,7 @@ const rectangle = {
   height: 50,
   width: 30,
 
-  showArea() {
+  showArea(): number {
     return this.height * this.width;
   },
 };
@@ -18,12 +18,12 @@ const rectangle = {
 const circle = {
   radius: 7,
 
-  showArea() {
+  showArea(): number {
     return Math.PI * Math.pow(this.radius, 2);
   },
 };
 
-export function runTask_01() {
+export function runTask_01(): void {
   console.log(`\nKwadrat ma szerokość ${rectangle.height} i wysokość ${rectangle.width}`);
   console.log(`Jego pole to ${rectangle.showArea()}`);
 

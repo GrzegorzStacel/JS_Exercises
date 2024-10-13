@@ -2,13 +2,21 @@
 // oraz metodę: showDetails(), która zrobi pętlę po tym obiekcie wypisując wszystkie jego klucze oraz ich wartości. Metoda ta nie powinna wypisywać tylko funkcji showDetails().
 // Wypisywanie właściwości wykonaj za pomocą pętli for in, oraz pętli po kolekcjach Object.keys(), Object.values(), Object.entries().
 
-const book = {
+interface Book {
+  title: string;
+  author: string;
+  pageCount: number;
+  publisher: string;
+  showDetails(): void;
+}
+
+const book: Book = {
   title: "I Love React",
   author: "ProVo",
   pageCount: 1550,
   publisher: "NoOne",
 
-  showDetails() {
+  showDetails(): void {
     console.log("\nPętla for_in");
     for (let key in this) {
       if (typeof this[key] !== "function") console.log(this[key]);
@@ -33,6 +41,6 @@ const book = {
   },
 };
 
-export function runTask_03() {
+export function runTask_03(): void {
   book.showDetails();
 }

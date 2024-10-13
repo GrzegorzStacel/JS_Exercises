@@ -23,17 +23,26 @@
 
 // Statek .... będący w okolicy .... został pokonany przez Klingonów
 
-const spaceShip = {
+interface Ship {
+  name: string;
+  currentLocation: string;
+  flyDistance: number;
+  flyTo(place: string, distance: number): void;
+  showInfo(): void;
+  meetClingon(chance?: number): void;
+}
+
+const spaceShip: Ship = {
   name: "Enterprise",
   currentLocation: "Earth",
   flyDistance: 0,
 
-  flyTo(place: string, distance: number) {
+  flyTo(place: string, distance: number): void {
     this.currentLocation = place;
     this.flyDistance += distance;
   },
 
-  showInfo() {
+  showInfo(): void {
     console.log(`\nInformacje o statu:`);
     console.log(`----------`);
     console.log(`Statek ${this.name}`);
@@ -59,7 +68,7 @@ const spaceShip = {
   },
 };
 
-export function runTask_04() {
+export function runTask_04(): void {
   spaceShip.showInfo();
   spaceShip.meetClingon();
 
