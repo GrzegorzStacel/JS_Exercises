@@ -8,6 +8,7 @@
     "allowSyntheticDefaultImports": true, // Umożliwia importowanie domyślnych eksportów z modułów, które nie używają eksportów domyślnych.
     "esModuleInterop": true, // Umożliwia zgodność z modułami CommonJS.
     "resolveJsonModule": true, // Umożliwia importowanie plików JSON
+    "strictNullChecks": true,
     "types": ["jest"]
   },
   "include": ["*.ts"],
